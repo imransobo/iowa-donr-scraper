@@ -92,11 +92,16 @@ class PDFExtractor:
         """Clean up OCR text to fix common recognition errors."""
         # Fix common substitutions, but only for non-numeric text
         fixes = [
-            (r"(?<!\d)0(?!\d)", "O"),  # Zero to O.
-            (r"(?<!\d)1(?!\d)", "I"),  # 1 to I
-            (r"(?<!\$)\$(?!\d)", "S"),  # Dollar to S only if not before a number
-            (r"(?<!\d)8(?!\d)", "B"),  # 8 to B
-            (r"(?<!\d)5(?!\d)", "S"),  # 5 to S
+            # Zero to O.
+            (r"(?<!\d)0(?!\d)", "O"),
+            # 1 to I
+            (r"(?<!\d)1(?!\d)", "I"),
+            # Dollar to S only if not before a number.
+            (r"(?<!\$)\$(?!\d)", "S"),
+            # 8 to B.
+            (r"(?<!\d)8(?!\d)", "B"),
+            # 5 to S
+            (r"(?<!\d)5(?!\d)", "S"),
         ]
 
         for old, new in fixes:
@@ -134,7 +139,7 @@ class PDFExtractor:
                         enhancer = ImageEnhance.Sharpness(image)
                         image = enhancer.enhance(2.0)
 
-                        # OCR configuration
+                        # OCR configuration.
                         custom_config = r'''--oem 3 --psm 6
                             -c preserve_interword_spaces=1
                             -c tessedit_do_invert=0
