@@ -22,6 +22,9 @@ This project automates the collection of environmental violation data from the I
 git clone [repository-url]
 cd iowa-donr-scraper-imran-sobo
 
+python -m venv .venv
+source .venv/bin/activate 
+
 pip install -r requirements.txt
 
 sudo apt-get update
