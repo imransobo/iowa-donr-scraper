@@ -1,0 +1,6 @@
+# Virtual Environment
+.venv/
+.scraper/__pycache__/
+
+# IDE specific files
+.idea/
